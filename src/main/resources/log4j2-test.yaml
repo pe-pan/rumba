@@ -1,0 +1,27 @@
+Configuration:
+  name: Default
+  Properties:
+    property:
+      name: filename
+      value: myq-rumba.log
+  Appenders:
+    Console:
+      name: STDOUT
+      PatternLayout:
+        Pattern: "%m%n"
+    File:
+      name: File
+      fileName: ${filename}
+      PatternLayout:
+        Pattern: "%d %p %C{1.} [%t] %m%n"
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: STDOUT
+    Logger:
+      - name: com.myq.interview.cleaner
+        level: debug
+        AppenderRef:
+          - ref: File
+            level: debug

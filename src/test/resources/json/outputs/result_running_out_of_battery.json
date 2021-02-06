@@ -1,0 +1,6 @@
+{
+  "visited" : [{ "X" : 1, "Y" : 0 }, { "X" : 1, "Y" : 1 } ],
+  "cleaned" : [ { "X" : 1, "Y" : 1 }],
+  "final" : { "X" : 1, "Y" : 0, "facing" : "N"},
+  "battery" : 3
+}

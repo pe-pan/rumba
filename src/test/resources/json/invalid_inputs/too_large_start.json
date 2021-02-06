@@ -1,0 +1,10 @@
+{
+  "map": [
+    [null, "S",null],
+    ["S",  "S", "S"],
+    [null, "S", null]
+  ],
+  "start": {"X": 1000000000000, "Y": 100000000000, "facing": "N"},
+  "commands": [ "C","A","C","A","A"],
+  "battery": 80
+}

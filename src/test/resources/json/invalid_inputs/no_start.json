@@ -1,0 +1,9 @@
+{
+  "map": [
+    [null, "S",null],
+    ["S",  "S", "S"],
+    [null, "S", null]
+  ],
+  "commands": [ "C","A","C","A","A"],
+  "battery": 80
+}
