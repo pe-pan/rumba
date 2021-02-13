@@ -39,15 +39,15 @@ public class Robot {
     }
 
     public Output work() {
-        boolean all_commands = true;
+        boolean allCommands = true;
         room.visited(new Position(position));
         try {
             for (String command : commands) {
                 log.info(String.format("Command: %s; Robot at %d, %d; facing %s; battery: %d", command, position.getX(), position.getY(), position.getFacing(), battery));
-                if (!run_command(command)) {
+                if (!runCommand(command)) {
                     if (!triggerBackOffStrategy()) {
                         log.error(String.format("Robot stuck at %d, %d; facing %s; battery: %d", position.getX(), position.getY(), position.getFacing(), battery));
-                        all_commands = false;
+                        allCommands = false;
                         break;
                     }
                 }
@@ -55,7 +55,7 @@ public class Robot {
         } catch (LowBatteryException e) {
             log.error(e);
         }
-        if (all_commands) {
+        if (allCommands) {
             log.info(String.format("Done; Robot at %d, %d; facing %s; battery: %d", position.getX(), position.getY(), position.getFacing(), battery));
         }
         return new Output(room.getVisited(), room.getCleaned(), position, battery); // is sorted already
@@ -69,7 +69,7 @@ public class Robot {
     public static final String[] COMMAND_ARR = {COMMAND_CLEAN, COMMAND_TURN_R, COMMAND_TURN_L, COMMAND_ADVANCE, COMMAND_BACK};
     public static final Set<String> COMMAND_SET = new HashSet<>(Arrays.asList(COMMAND_ARR));
 
-    private boolean run_command(String command) throws LowBatteryException {
+    private boolean runCommand(String command) throws LowBatteryException {
         switch (command) {
             case COMMAND_CLEAN:
                 clean();
@@ -123,7 +123,7 @@ public class Robot {
             log.info("Trying strategy: " + Arrays.toString(strategy));
             worked = true;
             for (String command : strategy) {
-                if (!run_command(command)) {
+                if (!runCommand(command)) {
                     worked = false;
                     break;
                 }
